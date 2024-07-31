@@ -1,0 +1,24 @@
+---
+const { redirect, from, via, to, bg, content, ringColor } = Astro.props;
+
+interface Props {
+  redirect: string;
+  from: string;
+  via: string;
+  to: string;
+  bg: string;
+  ringColor: string;
+}
+---
+
+<div class="relative inline-flex group">
+  <div
+    class={`absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-${from} via-${via} to-${to} rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt`}
+  >
+  </div>
+  <a
+    href={redirect}
+    class={`relative inline-flex items-center justify-center px-4 py-2 text-lg font-bold text-white transition-all duration-200 bg-${bg} font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${ringColor}`}
+    role="button"
+  >{content}</a>
+</div>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SnippetCardLatest from "../components/SnippetCardLatest.astro";
+import type { TSnippet } from "../lib/utils";
+
+const response = await fetch("http://localhost:1337/api/view/latest");
+const snippets: TSnippet[] = await response.json();
+---
+
+<BaseLayout title="Snippetbox">
+  <div class="container mx-auto px-4 max-w-screen-2xl flex-1 mt-4">
+    <h1
+      class="text-4xl font-bold my-10 mx-2 bg-gradient-to-r from-ctp-blue via-ctp-mauve to-ctp-lavender text-transparent bg-clip-text"
+    >
+      Latest Snippets
+    </h1>
+
+    <SnippetCardLatest snippets={snippets} />
+  </div>
+</BaseLayout>

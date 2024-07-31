@@ -1,0 +1,35 @@
+---
+import type { TSnippet } from "../lib/type";
+import { formatDate } from "../lib/utils";
+const { snippets } = Astro.props;
+
+interface Props {
+  snippets: TSnippet[];
+}
+---
+
+<table class="w-full border-2 rounded border-collapse border-ctp-sky">
+  <thead>
+    <tr
+      class="border-b-ctp-sky border rounded bg-ctp-crust text-ctp-blue font-bold"
+    >
+      <th class="px-4 py-2 text-left text-lg">TITLE</th>
+      <th class="px-4 py-2 text-left text-lg">CREATED</th>
+      <th class="px-4 py-2 text-right text-lg">ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      snippets &&
+        snippets.map((snippet) => {
+          return (
+            <tr class="border-b border-ctp-sky odd:bg-ctp-mantle even:bg-ctp-base text-ctp-sky font-semibold">
+              <td class="px-4 py-2 text-lg">{snippet.title}</td>
+              <td class="px-4 py-2 text-lg">{formatDate(snippet.created)}</td>
+              <td class="px-6 py-2 text-right text-lg">{snippet.id}</td>
+            </tr>
+          );
+        })
+    }
+  </tbody>
+</table>

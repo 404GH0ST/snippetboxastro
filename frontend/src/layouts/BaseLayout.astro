@@ -1,0 +1,26 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+const { title } = Astro.props;
+
+interface Props {
+  title: string;
+}
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="min-h-screen bg-ctp-base flex flex-col justify-between text-ctp-text"
+  >
+    <Header title={title} />
+    <slot />
+    <Footer />
+  </body>
+</html>

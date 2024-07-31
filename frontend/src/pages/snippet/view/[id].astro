@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SnippetCard from "../../../components/SnippetCard.astro";
+import type { TSnippet } from "../../../lib/type";
+
+const { id } = Astro.params;
+
+const response = await fetch(`http://localhost:1337/api/view/${id}`);
+const snippet: TSnippet = await response.json();
+
+if (response.status === 404 || !snippet) {
+  return Astro.redirect("/404");
+}
+---
+
+<BaseLayout title="Snippetbox">
+  <div class="container mx-auto px-4 max-w-screen-2xl flex-1 mt-20">
+    {
+      snippet && (
+        <SnippetCard
+          id={snippet.id}
+          title={snippet.title}
+          content={snippet.content}
+          created={snippet.created}
+          expires={snippet.expires}
+        />
+      )
+    }
+  </div>
+</BaseLayout>
