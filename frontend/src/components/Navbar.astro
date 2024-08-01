@@ -1,38 +1,16 @@
+---
+import NavLink from "./NavLink.astro";
+---
 <nav
   class="px-4 flex h-16 max-w-screen-2xl items-center border-2 border-ctp-teal rounded-lg text-lg shadow-ctp-sky shadow-md"
 >
   <ul class="flex gap-4 justity-start text-ctp-mauve">
-    <li>
-      <a
-        class="relative hover:text-ctp-yellow hover:underline hover:underline-offset-4 after:content-[''] after:absolute after:w-full after:h-1 after:-bottom-0.5 after:rounded-md after:left-0 after:bg-ctp-green after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100"
-        href="/">Home</a
-      >
-    </li>
-    <li>
-      <a
-        class="relative hover:text-ctp-yellow hover:underline hover:underline-offset-4 after:content-[''] after:absolute after:w-full after:h-1 after:-bottom-0.5 after:rounded-md after:left-0 after:bg-ctp-green after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100"
-        href="/snippets">Snippets</a
-      >
-    </li>
-    <li>
-      <a
-        class="relative hover:text-ctp-yellow hover:underline hover:underline-offset-4 after:content-[''] after:absolute after:w-full after:h-1 after:-bottom-0.5 after:rounded-md after:left-0 after:bg-ctp-green after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100"
-        href="/about">About</a
-      >
-    </li>
+    <NavLink href="/" name="Home" />
+    <NavLink href="/snippets" name="Snippets" />
+    <NavLink href="/about" name="About" />
   </ul>
   <ul class="flex flex-1 gap-4 justify-end text-ctp-lavender">
-    <li>
-      <a
-        class="relative hover:text-ctp-yellow hover:underline hover:underline-offset-4 after:content-[''] after:absolute after:w-full after:h-1 after:-bottom-0.5 after:rounded-md after:left-0 after:bg-ctp-green after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100"
-        href="/login">Login</a
-      >
-    </li>
-    <li>
-      <a
-        class="relative hover:text-ctp-yellow hover:underline hover:underline-offset-4 after:content-[''] after:absolute after:w-full after:h-1 after:-bottom-0.5 after:rounded-md after:left-0 after:bg-ctp-green after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100"
-        href="/signup">Sign up</a
-      >
-    </li>
+    <NavLink href="/login" name="Login" />
+    <NavLink href="/register" name="Register" />
   </ul>
 </nav>

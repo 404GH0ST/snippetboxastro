@@ -1,0 +1,18 @@
+---
+const { href, name } = Astro.props;
+const { pathname } = Astro.url;
+
+interface Props {
+  href: string;
+  name: string;
+}
+
+const isActive = pathname === href;
+---
+
+<li>
+  <a
+    class={`relative hover:underline hover:underline-offset-4 after:content-[''] after:absolute after:w-full after:h-1 after:-bottom-0.5 after:rounded-md after:left-0 after:bg-ctp-green after:scale-x-0 after:origin-left after:transition-transform ${isActive ? "text-ctp-yellow after:scale-x-100" : "hover:after:scale-x-100 hover:text-ctp-yellow"}`}
+    href={href}>{name}</a
+  >
+</li>
